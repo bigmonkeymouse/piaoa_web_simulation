@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浙商银行承兑汇票签收攻略</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 头部标题 -->
+    <header class="page-header">
+        <h1>浙商银行承兑汇票签收操作指南</h1>
+        <p>互动功能：点击图片放大 | 折叠步骤</p>
+    </header>
+
+    <!-- 主内容区：步骤 + 图片 -->
+    <main class="guide-container">
+        <!-- 步骤1 -->
+        <section class="step-card" id="step1">
+            <div class="step-header" onclick="toggleStep('step1')">
+                <span class="step-number">1</span>
+                <h2>进入票据模块</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="step-content">
+                <p>登录浙商银行企业网银，在顶部导航栏点击 <strong>「电子票据(新)」</strong> 。</p>
+                <figure class="step-image" onclick="openModal('img1')">
+                    <img src="images/step1.png" alt="步骤1截图">
+                    <figcaption>点击图片放大查看</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- 步骤2 -->
+        <section class="step-card" id="step2">
+            <div class="step-header" onclick="toggleStep('step2')">
+                <span class="step-number">2</span>
+                <h2>找到签收入口</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="step-content">
+                <p>方式一：左侧菜单栏点击 <strong>「快捷签收」</strong> ；<br>
+                   方式二：若待办任务有提示，直接点击 <strong>「背书转让签收」</strong>（如待办数字标记）。</p>
+                <figure class="step-image" onclick="openModal('img2')">
+                    <img src="images/step2.png" alt="步骤2截图">
+                    <figcaption>点击图片放大查看</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- 步骤3 -->
+        <section class="step-card" id="step3">
+            <div class="step-header" onclick="toggleStep('step3')">
+                <span class="step-number">3</span>
+                <h2>筛选并勾选票据</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="step-content">
+                <p>确认账号、设置票据到期日/申请日期（可默认），点击 <strong>「查询」</strong> ；<br>
+                   在结果列表中，勾选需要签收的票据（核对票据号码、金额）。</p>
+                <figure class="step-image" onclick="openModal('img3')">
+                    <img src="images/step3.png" alt="步骤3截图">
+                    <figcaption>点击图片放大查看</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- 步骤4 -->
+        <section class="step-card" id="step4">
+            <div class="step-header" onclick="toggleStep('step4')">
+                <span class="step-number">4</span>
+                <h2>加入待办列表</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="step-content">
+                <p>点击 <strong>「添加到已选列表」</strong> ，将票据移入下方“已选择列表”。</p>
+                <figure class="step-image" onclick="openModal('img4')">
+                    <img src="images/step4.png" alt="步骤4截图">
+                    <figcaption>点击图片放大查看</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- 步骤5 -->
+        <section class="step-card" id="step5">
+            <div class="step-header" onclick="toggleStep('step5')">
+                <span class="step-number">5</span>
+                <h2>进入确认环节</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="step-content">
+                <p>在已选择列表下方，点击 <strong>「下一步」</strong> 。</p>
+                <figure class="step-image" onclick="openModal('img5')">
+                    <img src="images/step5.png" alt="步骤5截图">
+                    <figcaption>点击图片放大查看</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- 步骤6 -->
+        <section class="step-card" id="step6">
+            <div class="step-header" onclick="toggleStep('step6')">
+                <span class="step-number">6</span>
+                <h2>完成签收</h2>
+                <span class="toggle-icon">+</span>
+            </div>
+            <div class="step-content">
+                <p>核对票面金额、数量等信息，确认无误后点击 <strong>「签收」</strong> 。</p>
+                <figure class="step-image" onclick="openModal('img6')">
+                    <img src="images/step6.png" alt="步骤6截图">
+                    <figcaption>点击图片放大查看</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- 模态框：图片放大 -->
+        <div class="modal" id="modal">
+            <span class="close-btn" onclick="closeModal()">×</span>
+            <img class="modal-img" id="modal-img" alt="放大图">
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
