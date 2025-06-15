@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浙商银行承兑汇票签收模拟</title>
+    <link rel="stylesheet" href="style.css"> <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .simulation-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .sim-step {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .sim-step h3 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+        .sim-step p {
+            margin-bottom: 5px;
+        }
+        .sim-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+        .sim-button:hover {
+            background-color: #0056b3;
+        }
+        .hidden {
+            display: none;
+        }
+        .page-header h1 {
+            color: #333;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <h1>浙商银行承兑汇票签收模拟</h1>
+    </header>
+
+    <main class="simulation-container">
+        <div id="sim-step-1" class="sim-step">
+            <h3>步骤 1：进入票据模块</h3>
+            <p>登录浙商银行企业网银，在顶部导航栏点击 <strong>「电子票据 (新)」</strong>。</p>
+            <button class="sim-button" onclick="showStep('sim-step-2')">模拟点击「电子票据 (新)」</button>
+        </div>
+
+        <div id="sim-step-2" class="sim-step hidden">
+            <h3>步骤 2：找到签收入口</h3>
+            <p>方式一：左侧菜单栏点击 <strong>「快捷签收」</strong>；</p>
+            <p>方式二：若待办任务有提示，直接点击 <strong>「背书转让签收」</strong>（如待办数字标记）。</p>
+            <button class="sim-button" onclick="showStep('sim-step-3')">模拟点击「快捷签收」</button>
+        </div>
+
+        <div id="sim-step-3" class="sim-step hidden">
+            <h3>步骤 3：筛选并勾选票据</h3>
+            <p>确认账号、设置票据到期日 / 申请日期（可默认），点击 <strong>「查询」</strong>；</p>
+            <p>在结果列表中，勾选需要签收的票据（核对票据号码、金额）。</p>
+            <button class="sim-button" onclick="showStep('sim-step-4')">模拟点击「查询」并勾选票据</button>
+        </div>
+
+        <div id="sim-step-4" class="sim-step hidden">
+            <h3>步骤 4：加入待办列表</h3>
+            <p>点击 <strong>「添加到已选列表」</strong>，将票据移入下方 “已选择列表”。</p>
+            <button class="sim-button" onclick="showStep('sim-step-5')">模拟点击「添加到已选列表」</button>
+        </div>
+
+        <div id="sim-step-5" class="sim-step hidden">
+            <h3>步骤 5：进入确认环节</h3>
+            <p>在已选择列表下方，点击 <strong>「下一步」</strong>。</p>
+            <button class="sim-button" onclick="showStep('sim-step-6')">模拟点击「下一步」</button>
+        </div>
+
+        <div id="sim-step-6" class="sim-step hidden">
+            <h3>步骤 6：完成签收</h3>
+            <p>核对票面金额、数量等信息，确认无误后点击 <strong>「签收」</strong>。</p>
+            <p style="color: green; font-weight: bold;">模拟签收完成！</p>
+            <button class="sim-button" onclick="resetSimulation()">重新开始模拟</button>
+        </div>
+    </main>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 6;
+
+        function showStep(stepIdToShow) {
+            // Hide all steps
+            for (let i = 1; i <= totalSteps; i++) {
+                document.getElementById(`sim-step-${i}`).classList.add('hidden');
+            }
+            // Show the target step
+            document.getElementById(stepIdToShow).classList.remove('hidden');
+            currentStep = parseInt(stepIdToShow.split('-')[2]);
+        }
+
+        function resetSimulation() {
+            showStep('sim-step-1');
+        }
+
+        // Initialize by showing the first step
+        document.addEventListener('DOMContentLoaded', () => {
+            showStep('sim-step-1');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>背书转让签收 - 模拟步骤3</title>
+    <style>
+        body { font-family: "Microsoft YaHei", SimHei, Arial, sans-serif; margin: 0; background-color: #f0f2f5; font-size: 12px; color: #333; }
+        .header-banner { background-color: #E4000F; color: white; padding: 10px 20px; font-size: 16px; }
+        .main-container { margin: 15px; background-color: #fff; border: 1px solid #ddd; padding:20px; }
+        .page-path { font-size: 13px; color: #666; margin-bottom: 15px; }
+        .page-path a { text-decoration: none; color: #007bff; }
+        .page-path a:hover { text-decoration: underline; }
+        .form-section, .table-section { margin-bottom: 20px; padding:15px; border:1px solid #eee; border-radius:3px; background-color:#FDFDFD; }
+        .form-section h3, .table-section h3 { font-size: 14px; color: #E4000F; margin-top: 0; margin-bottom: 15px; padding-bottom:5px; border-bottom:1px solid #f0f0f0; }
+        .form-grid { display: grid; grid-template-columns: auto 1fr auto 1fr; gap: 10px 15px; align-items: center; }
+        .form-grid label { text-align: right; }
+        .form-grid input[type="text"], .form-grid select { padding: 6px; border: 1px solid #ccc; border-radius: 3px; width:100%; box-sizing: border-box; }
+        .form-buttons { grid-column: span 4; text-align: center; margin-top:10px;}
+        .btn { padding: 8px 20px; border: none; border-radius: 3px; cursor: pointer; font-size: 13px; margin: 0 5px; }
+        .btn-query { background-color: #FF7F00; color: white; } /* 查询按钮橙色 */
+        .btn-query:hover { background-color: #E87200; }
+        .btn-reset { background-color: #777; color: white; }
+        .btn-reset:hover { background-color: #666; }
+        .results-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .results-table th, .results-table td { border: 1px solid #ddd; padding: 8px; text-align: left; font-size: 12px; }
+        .results-table th { background-color: #f7f7f7; font-weight:normal; }
+        .results-table input[type="checkbox"] { vertical-align: middle; }
+        .action-buttons { margin-top: 15px; text-align: center; }
+        .btn-add-selected { background-color: #E4000F; color: white; } /* 添加到已选列表按钮红色 */
+        .btn-add-selected:hover { background-color: #C0000D; }
+        .highlight-target { border: 2px solid red !important; box-shadow: 0 0 10px red; }
+        .step-indicator { text-align: center; margin-bottom: 20px; }
+        .step-indicator span { display: inline-block; padding: 8px 15px; border: 1px solid #ccc; border-radius: 20px; margin: 0 5px; color: #777; }
+        .step-indicator .current-step { background-color: #E4000F; color: white; border-color: #E4000F; font-weight:bold; }
+    </style>
+</head>
+<body>
+    <div class="header-banner">电子票据(新) > 背书转让签收</div>
+    <div class="main-container">
+        <div class="page-path"><a href="sim_step2.html">电子票据(新)</a> > 背书转让签收</div>
+        
+        <div class="step-indicator">
+            <span class="current-step">① 选择票据</span>
+            <span>② 确认信息</span>
+            <span>③ 申请成功</span>
+        </div>
+
+        <section class="form-section">
+            <h3>查询条件</h3>
+            <div class="form-grid">
+                <label for="acct-no">票据账号:</label>
+                <input type="text" id="acct-no" value="791000010120100970770">
+                <label for="acct-name">账户名称:</label>
+                <input type="text" id="acct-name" value="杭州电子票据科技有限公司" readonly style="background:#eee;">
+                
+                <label for="due-date-start">票据到期日:</label>
+                <input type="text" id="due-date-start" value="202X0X0X">
+                <label for="due-date-end">至</label>
+                <input type="text" id="due-date-end" value="202X0X0X">
+
+                <label for="apply-date-start">申请日期:</label>
+                <input type="text" id="apply-date-start" value="202X0X0X">
+                <label for="apply-date-end">至</label>
+                <input type="text" id="apply-date-end" value="202X0X0X">
+            </div>
+            <div class="form-buttons">
+                <button class="btn btn-query">查询</button>
+                <button class="btn btn-reset">重置</button>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h3>查询结果</h3>
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="select-all"></th>
+                        <th>票据号码</th>
+                        <th>子票区间</th>
+                        <th>票面金额</th>
+                        <th>出票金额(元)</th>
+                        <th>备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" class="highlight-target" name="bill-select"></td>
+                        <td>13027932514620220411100963106</td>
+                        <td>000000005001-000000010000</td>
+                        <td>50.00</td>
+                        <td>50.00</td>
+                        <td><select><option>正常</option></select></td>
+                    </tr>
+                    <!-- 更多票据行 -->
+                </tbody>
+            </table>
+            <div style="text-align:right; margin-top:10px; font-size:12px;">共 1 条记录 1 / 1 页</div>
+            <div class="action-buttons">
+                <button class="btn btn-add-selected" onclick="alert('模拟：已添加到已选列表，进入下一步骤。实际应跳转到步骤4')">添加到已选列表</button>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <h3>温馨提示</h3>
+            <p>1. 电子商业汇票是出票人依托电子商业汇票系统，以数据电文形式制作的，委托付款人在指定日期无条件支付确定金额给收款人或持票人的票据。</p>
+            <p>2. 对转让背书的票据，您可在此处办理签收、驳回。若票据信息有误，请及时驳回。</p>
+        </section>
+    </div>
+    <script>
+        document.getElementById('select-all').addEventListener('change', function() {
+            const checkboxes = document.getElementsByName('bill-select');
+            for (let checkbox of checkboxes) {
+                checkbox.checked = this.checked;
+            }
+        });
+    </script>
+</body>
+</html>

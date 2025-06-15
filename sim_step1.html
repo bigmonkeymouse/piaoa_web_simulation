@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浙商银行企业网上银行 - 模拟步骤1</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei", SimHei, Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f2f5;
+            font-size: 12px;
+            color: #333;
+        }
+        .header {
+            background-color: #B81C22; /* 主红色 */
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            color: white;
+            height: 60px; /* 根据图片估算高度 */
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 30px;
+            /* 这里可以放一个Logo图片 */
+        }
+        .logo .bank-name {
+            font-size: 20px;
+            font-weight: normal;
+        }
+        .top-nav {
+            display: flex;
+            flex-grow: 1;
+        }
+        .top-nav a, .top-nav span {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin-right: 5px;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+        .top-nav a:hover, .top-nav span:hover {
+            background-color: #A0181E;
+        }
+        .top-nav .active {
+            background-color: #D93D43; /* 激活状态的浅红色 */
+            font-weight: bold;
+        }
+        .user-actions {
+            display: flex;
+            align-items: center;
+        }
+        .user-actions a, .user-actions span {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 12px;
+        }
+        .search-bar {
+            margin-left: 20px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .main-container {
+            display: flex;
+            margin: 15px;
+            background-color: #fff; /* 主内容区白色背景 */
+            border: 1px solid #ddd;
+        }
+
+        .left-sidebar {
+            width: 220px; /* 根据图片估算宽度 */
+            background-color: #fff; 
+            padding: 20px;
+            border-right: 1px solid #e8e8e8;
+        }
+        .user-greeting {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .user-greeting img {
+            width: 60px; /* 估算头像大小 */
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .user-greeting .company-name {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+        }
+        .user-greeting .last-login {
+            font-size: 12px;
+            color: #888;
+            margin-top: 5px;
+        }
+        .sidebar-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar-menu li a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #333;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+        }
+        .sidebar-menu li a:hover {
+            background-color: #f7f7f7;
+        }
+
+        .content-area {
+            flex-grow: 1;
+            padding: 20px;
+            background-color: #fff;
+        }
+        .section-header {
+            font-size: 16px;
+            font-weight: bold;
+            color: #B81C22; /* 红色标题 */
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #B81C22;
+        }
+        .quick-access, .balance-info, .announcements {
+            margin-bottom: 20px;
+        }
+        .quick-access-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* 响应式网格 */
+            gap: 15px;
+        }
+        .quick-access-item {
+            text-align: center;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .quick-access-item:hover {
+            border-color: #B81C22;
+            box-shadow: 0 0 5px rgba(184, 28, 34, 0.2);
+        }
+        .quick-access-item img { /* 假设有图标 */
+            width: 32px; 
+            height: 32px;
+            margin-bottom: 8px;
+        }
+        .balance-details p, .announcements ul li {
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+        .announcements ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .announcements ul li a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .announcements ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .right-sidebar {
+            width: 280px; /* 根据图片估算宽度 */
+            background-color: #fff;
+            padding: 20px;
+            border-left: 1px solid #e8e8e8;
+        }
+        .calendar-placeholder {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            height: 250px; /* 估算日历高度 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f9f9f9;
+        }
+        .ad-placeholder {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            height: 100px; /* 估算广告高度 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f9f9f9;
+        }
+
+        /* 模拟高亮效果 */
+        .highlight-target {
+            border: 2px solid red !important; /* 用于指示用户点击目标 */
+            box-shadow: 0 0 10px red;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            浙商银行 <span class="bank-name">企业网上银行</span>
+        </div>
+        <nav class="top-nav">
+            <a href="#" class="active">首页</a>
+            <a href="#">账户管理</a>
+            <a href="#">转账汇款</a>
+            <a href="#">投资理财</a>
+            <!-- 模拟点击目标，实际链接到 sim_step2.html -->
+            <a href="sim_step2.html" id="nav-e-bill" class="highlight-target">电子票据(新)</a> 
+            <a href="#">集团业务</a>
+            <a href="#">客户服务</a>
+            <a href="#">安全中心</a>
+            <a href="#">移动金融</a>
+            <a href="#">国际业务</a>
+        </nav>
+        <div class="user-actions">
+            <span>欢迎您, XXXX公司</span>
+            <a href="#">English</a>
+            <a href="#">退出</a>
+            <input type="text" placeholder="全站搜索" class="search-bar">
+        </div>
+    </header>
+
+    <div class="main-container">
+        <aside class="left-sidebar">
+            <div class="user-greeting">
+                <!-- 实际应为用户头像 -->
+                <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Crect%20width%3D%2260%22%20height%3D%2260%22%20fill%3D%22%23ddd%22/%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20dominant-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%22%20font-size%3D%2220%22%20fill%3D%22%23777%22%3E头像%3C/text%3E%3C/svg%3E" alt="用户头像">
+                <div class="company-name">欢迎，用户X</div>
+                <div class="last-login">预留信息验证成功</div>
+                <div class="last-login">上次登录时间：202X-0X-XX XX:XX:XX</div>
+            </div>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="#">账户管理</a></li>
+                    <li><a href="#">转账汇款</a></li>
+                    <li><a href="#">特色业务</a></li>
+                    <li><a href="#">代发薪酬</a></li>
+                    <li><a href="#">企业贷款</a></li>
+                    <li><a href="#">跨境金融</a></li>
+                    <li><a href="#">电子票据</a></li>
+                    <li><a href="#">自助缴费</a></li>
+                    <li><a href="#">客户服务</a></li>
+                    <li><a href="#">更多</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+            <section class="quick-access">
+                <h2 class="section-header">快捷功能</h2>
+                <div class="quick-access-grid">
+                    <div class="quick-access-item"><img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23ccc%22/%3E%3C/svg%3E" alt=""><span>账单支付</span></div>
+                    <div class="quick-access-item"><img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23ccc%22/%3E%3C/svg%3E" alt=""><span>账户查询</span></div>
+                    <div class="quick-access-item"><img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23ccc%22/%3E%3C/svg%3E" alt=""><span>跨行转账</span></div>
+                    <div class="quick-access-item"><img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Crect%_width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23ccc%22/%3E%3C/svg%3E" alt=""><span>贷款申请</span></div>
+                </div>
+            </section>
+            <section class="balance-info">
+                <h2 class="section-header">账户余额</h2>
+                <div class="balance-details">
+                    <p>人民币账户：¥ X,XXX,XXX.XX</p>
+                    <p>美元账户：$ XX,XXX.XX</p>
+                </div>
+            </section>
+            <section class="announcements">
+                <h2 class="section-header">最新公告</h2>
+                <ul>
+                    <li><a href="#">关于XXXX系统升级的通知</a> <span>202X-XX-XX</span></li>
+                    <li><a href="#">XXXX产品利率调整公告</a> <span>202X-XX-XX</span></li>
+                </ul>
+            </section>
+        </main>
+
+        <aside class="right-sidebar">
+            <div class="section-header">日历与提醒</div>
+            <div class="calendar-placeholder">
+                此处为日历控件占位
+            </div>
+            <div class="ad-placeholder" style="margin-top: 20px;">
+                此处为广告位占位
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        // 简单的页面跳转，实际项目中可能会有更复杂的交互逻辑
+        document.getElementById('nav-e-bill').addEventListener('click', function(event) {
+            // event.preventDefault(); // 如果不想立即跳转，可以在这里处理其他逻辑
+            // window.location.href = 'sim_step2.html'; // 跳转由<a>标签的href处理
+            console.log('跳转到电子票据(新)页面');
+        });
+    </script>
+</body>
+</html>
