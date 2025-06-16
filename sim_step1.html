@@ -250,11 +250,12 @@
             width: 24px; 
             height: 24px;
             margin-bottom: 5px;
-            /* Placeholder for icons */
-            background-color: #ccc;
+            /* Placeholder for icons - background-color removed */
+            /* background-color: #ccc; */ /* 移除了这一行 */
             display: block;
             margin-left: auto;
             margin-right: auto;
+            object-fit: contain; /* 新增：确保图片在指定尺寸内完整显示，不变形 */
         }
 
         /* 模拟高亮效果 */
@@ -366,7 +367,7 @@
     <div class="bottom-quick-access">
         <h3 class="section-title" style="border-bottom: none; margin-bottom: 15px;">快捷交易 <span style="font-size:12px; color:#999; font-weight:normal;">贵司转账支付类业务需经多人办理:(经办-授权),请相互提醒。</span></h3>
         <div class="quick-access-grid">
-            <div class="quick-access-item"><img src="" alt=""><span>银企电子对账</span></div>
+            <div class="quick-access-item"><img src="icon/zs_bank/qshp_step1_1.jpg" alt="银企电子对账图标"><span>银企电子对账</span></div>
             <div class="quick-access-item"><img src="" alt=""><span>账户余额查询</span></div>
             <div class="quick-access-item"><img src="" alt=""><span>当日明细/回单</span></div>
             <div class="quick-access-item"><img src="" alt=""><span>历史明细/回单</span></div>
